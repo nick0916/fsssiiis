@@ -6,33 +6,70 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
    <script src="./js/semantic.js"></script>
    <script src="./js/PicCarousel.js"></script>
+   <script src="js/modernizr.js"></script> <!-- Modernizr -->
+   <script src="js/main.js"></script> <!-- Resource jQuery -->
    <link rel="stylesheet" type="text/css" href="./css/semantic.css">
    <link rel="stylesheet" type="text/css" href="./css/default.css">
    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+   <link rel="stylesheet" type="text/css" href="./css/reset.css"> <!-- CSS reset -->
+   <link rel="stylesheet" type="text/css" href="./css/timetable.css"> <!-- CSS reset -->
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
    <link rel="stylesheet" type="text/css" href="./css/style.css">
 
-<script type="text/javascript">
-$(document).ready(function() {
-   $(".A_Demo").PicCarousel("init");
-   $(".B_Demo").PicCarousel({
-      "width":1000,     //幻灯片的宽度
-      "height":300,     //幻灯片的高度
-      "posterWidth":520,   //幻灯片第一帧的宽度
-      "posterHeight":300, //幻灯片第一张的高度
-      "scale":0.9,      //记录显示比例关系
-      "speed":1500,     //记录幻灯片滚动速度
-      "autoPlay":true,  //是否开启自动播放
-      "delay":1000,     //自动播放间隔
-      "verticalAlign":"top"   //图片对齐位置
-   });
-});
 
-</script>
+  
+
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+       // $(".A_Demo").PicCarousel("init");
+       $(".A_Demo").PicCarousel({
+          "width":1000,     //幻灯片的宽度
+          "height":300,     //幻灯片的高度
+          "posterWidth":520,   //幻灯片第一帧的宽度
+          "posterHeight":300, //幻灯片第一张的高度
+          "scale":0.9,      //记录显示比例关系
+          "speed":1500,     //记录幻灯片滚动速度
+          "autoPlay":true,  //是否开启自动播放
+          "delay":1000,     //自动播放间隔
+          "verticalAlign":"top"   //图片对齐位置
+       });
+
+       $('.cd-timeline-content').on('click', function(){
+          var filename = $(this).parent().find('span').text();
+          console.log(filename);
+          ajax(filename);
+          $('#timetable').hide();
+          $('#picture').show();
+       });
+       // $('#return').on('click', function(){
+       //    $('#timetable').show();
+       //    $('#picture').hide();
+       // });
+    });
+
+    function ajax(date){
+      var ajaxurl = '/'+ date;
+      $.ajax({
+        url:ajaxurl,
+        type: 'GET',
+        success: function(response) {
+          $('#picture').html(response);
+           $('#return').on('click', function(){
+              $('#timetable').show();
+              $('#picture').hide();
+           });
+        }
+      });
+    }
+
+
+  </script>
 
 </head>
 <body style="margin: 0 0 0 0">
    <div style="flex-direction: row; display: flex; justify-content:space-between;">
-      <div style="background-color: rgb(58, 52,52); display: flex; flex-direction: column; height: 100vh; width: 15%">
+      <div style="background-color: rgb(58, 52,52); display: flex; flex-direction: column;  width: 15%">
          <div style=" color: white;">
             <h1 style="margin-top: 30px;">～我的家庭～</h1>
             <ol>成員1</ol>
@@ -49,7 +86,7 @@ $(document).ready(function() {
          </div>
       </div>
       <div style="width:70%;">
-         <div class="poster-main A_Demo" style="flex-direction: column; display: flex;">
+          <div class="poster-main A_Demo" style="flex-direction: column; display: flex;">
             <div class="poster-btn poster-prev-btn"></div>
             <ul class="poster-list">
                <li class="poster-item"><a href="#"><img src="img/1.jpg" width="70%" height="70%" ></a></li>
@@ -57,10 +94,108 @@ $(document).ready(function() {
                <li class="poster-item"><a href="#"><img src="img/3.jpg" width="70%" height="70%"></a></li>
                <li class="poster-item"><a href="#"><img src="img/4.jpg" width="70%" height="70%"></a></li>
                <li class="poster-item"><a href="#"><img src="img/5.jpg" width="70%" height="70%"></a></li>
+               <li class="poster-item"><a href="#"><img src="img/5.jpg" width="70%" height="70%"></a></li>
+               <li class="poster-item"><a href="#"><img src="img/5.jpg" width="70%" height="70%"></a></li>
+               <li class="poster-item"><a href="#"><img src="img/5.jpg" width="70%" height="70%"></a></li>
+               <li class="poster-item"><a href="#"><img src="img/5.jpg" width="70%" height="70%"></a></li>
             </ul>
             <div class="poster-btn poster-next-btn"></div>
-         </div>
-         <hr style="width:90%;margin:0vh 0% 10px 4%;border:solid 1px black;">
+          </div>
+          <hr style="width:90%;margin:0vh 0% 10px 4%;border:solid 1px black;">
+          <!-- timetable -->
+          <div style="height: 400px; overflow-y:scroll;" id="timetable">
+            <section id="cd-timeline" class="cd-container">
+              <div class="cd-timeline-block">
+                <div class="cd-timeline-img cd-picture">
+                  <img src="img/cd-icon-picture.svg" alt="Picture">
+                </div> <!-- cd-timeline-img -->
+
+                <div class="cd-timeline-content">
+                  <h2>at 台灣大學</h2>
+                  <img src="img/1.jpg" width="60%" height="60%" >
+                  <h4>大哥婚紗照</h4>
+                  <span class="cd-date">9月24日</span>
+                </div> <!-- cd-timeline-content -->
+              </div> <!-- cd-timeline-block -->
+
+              <div class="cd-timeline-block">
+                <div class="cd-timeline-img cd-movie">
+                  <img src="img/cd-icon-movie.svg" alt="Movie">
+                </div> <!-- cd-timeline-img -->
+
+                <div class="cd-timeline-content">
+                  <h2>at 天母運動公園</h2>
+                  <img src="img/2.jpg" width="60%" height="60%" >
+
+                  <span class="cd-date">10月11日</span>
+                </div> <!-- cd-timeline-content -->
+              </div> <!-- cd-timeline-block -->
+
+              <div class="cd-timeline-block">
+                <div class="cd-timeline-img cd-picture">
+                  <img src="img/cd-icon-picture.svg" alt="Picture">
+                </div> <!-- cd-timeline-img -->
+
+                <div class="cd-timeline-content">
+                  <h2>Title of section 3</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.</p>
+                  <a href="#0" class="cd-read-more">Read more</a>
+                  <span class="cd-date">Jan 24</span>
+                </div> <!-- cd-timeline-content -->
+              </div> <!-- cd-timeline-block -->
+
+              <div class="cd-timeline-block">
+                <div class="cd-timeline-img cd-location">
+                  <img src="img/cd-icon-location.svg" alt="Location">
+                </div> <!-- cd-timeline-img -->
+
+                <div class="cd-timeline-content">
+                  <h2>Title of section 4</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+                  <a href="#0" class="cd-read-more">Read more</a>
+                  <span class="cd-date">Feb 14</span>
+                </div> <!-- cd-timeline-content -->
+              </div> <!-- cd-timeline-block -->
+
+              <div class="cd-timeline-block">
+                <div class="cd-timeline-img cd-location">
+                  <img src="img/cd-icon-location.svg" alt="Location">
+                </div> <!-- cd-timeline-img -->
+
+                <div class="cd-timeline-content">
+                  <h2>Title of section 5</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum.</p>
+                  <a href="#0" class="cd-read-more">Read more</a>
+                  <span class="cd-date">Feb 18</span>
+                </div> <!-- cd-timeline-content -->
+              </div> <!-- cd-timeline-block -->
+
+              <div class="cd-timeline-block">
+                <div class="cd-timeline-img cd-movie">
+                  <img src="img/cd-icon-movie.svg" alt="Movie">
+                </div> <!-- cd-timeline-img -->
+
+                <div class="cd-timeline-content">
+                  <h2>Final Section</h2>
+                  <p>This is the content of the last section</p>
+                  <span class="cd-date">Feb 26</span>
+                </div> <!-- cd-timeline-content -->
+              </div> <!-- cd-timeline-block -->
+            </section> <!-- cd-timeline -->        
+          </div>
+          <div style=" height: 500px;overflow-y:scroll; padding-left: 50px;padding-right: 50px; display: none" id="picture">
+            <h3>回上一頁</h3>
+            <img src="img/1.jpg" width="20%" height="20%" style="margin-left: 10px; margin-top: 10px;">
+            <img src="img/2.jpg" width="20%" height="20%" style="margin-left: 10px; margin-top: 10px;">
+            <img src="img/3.jpg" width="20%" height="20%" style="margin-left: 10px; margin-top: 10px;">
+            <img src="img/4.jpg" width="20%" height="20%" style="margin-left: 10px; margin-top: 10px;">
+            <img src="img/5.jpg" width="20%" height="20%" style="margin-left: 10px; margin-top: 10px;">
+            <img src="img/1.jpg" width="20%" height="20%" style="margin-left: 10px; margin-top: 10px;">
+            <img src="img/2.jpg" width="20%" height="20%" style="margin-left: 10px; margin-top: 10px;">
+            <img src="img/3.jpg" width="20%" height="20%" style="margin-left: 10px; margin-top: 10px;">
+            <img src="img/4.jpg" width="20%" height="20%" style="margin-left: 10px; margin-top: 10px;">
+          </div>
+
       </div>
       <div style="background-color: rgb(237, 237, 237); width: 15%; z-index: 1;">
          <div style="display: flex;">
@@ -72,18 +207,24 @@ $(document).ready(function() {
             </button>
          </div>
          <hr style="width:100%;margin:30px 0% 10px 0%;border:solid 1px rgb(221,221,221);">
-         <div class="ui selection dropdown">
-           <input type="hidden" name="gender">
-           <i class="dropdown icon"></i>
-           <div class="default text">#新增家庭行程</div>
-           <div class="menu">
-               <div class="item" data-value="1">日期</div>
-               <div class="item" data-value="2">主題</div>
-               <div class="item" data-value="3">人員</div>
-               <div class="item" data-value="4">地點</div>
+         <div>
+           <div class="ui selection dropdown">
+             <input type="hidden" name="gender">
+             <i class="dropdown icon"></i>
+             <div class="default text">#新增家庭行程</div>
+             <div class="menu">
+                 <div class="item" data-value="1">日期</div>
+                 <div class="item" data-value="2">主題</div>
+                 <div class="item" data-value="3">人員</div>
+                 <div class="item" data-value="4">地點</div>
+             </div>
            </div>
+           <hr style="width:100%;margin:30px 0% 10px 0%;border:solid 1px rgb(221,221,221);">
          </div>
-         <hr style="width:100%;margin:30px 0% 10px 0%;border:solid 1px rgb(221,221,221);">
+         <div>
+           <h2>檔案1</h2>
+         </div>
+
       </div>   
    </div>
 
