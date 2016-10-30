@@ -17,6 +17,7 @@
    <link rel="stylesheet" type="text/css" href="./css/style.css">
 
 
+
   
 
 
@@ -63,8 +64,45 @@
       });
     }
 
+    function picShowInit() {
+       var bwidth=document.getElementById('B_demo').clientWidth;
+       $(".B_Demo").PicCarousel({
+          "width":bwidth,     //幻灯片的宽度
+          "height":bwidth*0.3,     //幻灯片的高度
+          "posterWidth":bwidth*0.52,   //幻灯片第一帧的宽度
+          "posterHeight":bwidth*0.3, //幻灯片第一张的高度
+          "scale":0.9,      //记录显示比例关系
+          "speed":1500,     //记录幻灯片滚动速度
+          "autoPlay":true,  //是否开启自动播放
+          "delay":1000,     //自动播放间隔
+          "verticalAlign":"top"   //图片对齐位置
+       });
+    }
+
+    $(document).ready(picShowInit);
+
 
   </script>
+<script type="text/javascript">
+function picShowInit() {
+   var bwidth=document.getElementById('B_demo').clientWidth;
+   $(".B_Demo").PicCarousel({
+      "width":bwidth,     //幻灯片的宽度
+      "height":bwidth*0.3,     //幻灯片的高度
+      "posterWidth":bwidth*0.52,   //幻灯片第一帧的宽度
+      "posterHeight":bwidth*0.3, //幻灯片第一张的高度
+      "scale":0.9,      //记录显示比例关系
+      "speed":1500,     //记录幻灯片滚动速度
+      "autoPlay":true,  //是否开启自动播放
+      "delay":1000,     //自动播放间隔
+      "verticalAlign":"top"   //图片对齐位置
+   });
+}
+
+$(document).ready(picShowInit);
+
+</script>
+
 
 </head>
 <body style="margin: 0 0 0 0">
@@ -85,8 +123,9 @@
             </div>
          </div>
       </div>
-      <div style="width:70%;">
-          <div class="poster-main A_Demo" style="flex-direction: column; display: flex;">
+
+      <div style="width:70%;"  id='B_demo'>
+         <div class="poster-main B_Demo" style="flex-direction: column; display: flex;">
             <div class="poster-btn poster-prev-btn"></div>
             <ul class="poster-list">
                <li class="poster-item"><a href="#"><img src="img/1.jpg" width="70%" height="70%" ></a></li>
