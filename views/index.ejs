@@ -12,20 +12,24 @@
    <link rel="stylesheet" type="text/css" href="./css/style.css">
 
 <script type="text/javascript">
-$(document).ready(function() {
-   $(".A_Demo").PicCarousel("init");
+function picShowInit() {
+   var bwidth=document.getElementById('B_demo').clientWidth;
    $(".B_Demo").PicCarousel({
-      "width":1000,     //幻灯片的宽度
-      "height":300,     //幻灯片的高度
-      "posterWidth":520,   //幻灯片第一帧的宽度
-      "posterHeight":300, //幻灯片第一张的高度
+      "width":bwidth,     //幻灯片的宽度
+      "height":bwidth*0.3,     //幻灯片的高度
+      "posterWidth":bwidth*0.52,   //幻灯片第一帧的宽度
+      "posterHeight":bwidth*0.3, //幻灯片第一张的高度
       "scale":0.9,      //记录显示比例关系
       "speed":1500,     //记录幻灯片滚动速度
       "autoPlay":true,  //是否开启自动播放
       "delay":1000,     //自动播放间隔
       "verticalAlign":"top"   //图片对齐位置
    });
-});
+}
+function picShow() {
+}
+$(document).ready(picShowInit);
+$(window).resize(picShow);
 
 </script>
 
@@ -48,8 +52,8 @@ $(document).ready(function() {
             </div>
          </div>
       </div>
-      <div style="width:70%;">
-         <div class="poster-main A_Demo" style="flex-direction: column; display: flex;">
+      <div style="width:70%;"  id='B_demo'>
+         <div class="poster-main B_Demo" style="flex-direction: column; display: flex;">
             <div class="poster-btn poster-prev-btn"></div>
             <ul class="poster-list">
                <li class="poster-item"><a href="#"><img src="img/1.jpg" width="70%" height="70%" ></a></li>
@@ -84,7 +88,7 @@ $(document).ready(function() {
            </div>
          </div>
          <hr style="width:100%;margin:30px 0% 10px 0%;border:solid 1px rgb(221,221,221);">
-      </div>   
+      </div>
    </div>
 
 </body>
