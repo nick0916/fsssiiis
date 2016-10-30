@@ -1,5 +1,5 @@
 /**
- * jQuery PicCarousel.js 
+ * jQuery PicCarousel.js
  * Version 0.1.4
  *
  * https://github.com/javion25/PicCarousel.js
@@ -26,15 +26,15 @@
 				var me = this;
 				me.poster = me.element;
 				me.posterItemMain = me.poster.find("ul.poster-list");
-				me.nextBtn = me.poster.find("div.poster-next-btn"); 
-				me.prevBtn = me.poster.find("div.poster-prev-btn"); 
+				me.nextBtn = me.poster.find("div.poster-next-btn");
+				me.prevBtn = me.poster.find("div.poster-prev-btn");
 				me.posterItems = me.poster.find("li.poster-item");
 
 				if(me.posterItems.size()%2 == 0){
-					me.posterItemMain.append(me.posterItems.ep(0).clone());
-					me.posterItems = me.posterItemMain.children;
+					me.posterItemMain.append(me.posterItems.eq(0).clone());
+					me.posterItems = me.posterItemMain.children();
 				}
-				
+
 				me.posterFirstItem = me.posterItems.first();
 				me.posterLastItem = me.posterItems.last();
 				me.rotateFlag =true;
