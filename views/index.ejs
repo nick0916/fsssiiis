@@ -43,10 +43,9 @@
           $('#timetable').hide();
           $('#picture').show();
        });
-       // $('#return').on('click', function(){
-       //    $('#timetable').show();
-       //    $('#picture').hide();
-       // });
+        $('.ui.dropdown')
+          .dropdown()
+        ;
     });
 
     function ajax(date){
@@ -109,11 +108,10 @@ $(document).ready(picShowInit);
    <div style="flex-direction: row; display: flex; justify-content:space-between;">
       <div style="background-color: rgb(58, 52,52); display: flex; flex-direction: column;  width: 15%">
          <div style=" color: white;">
-            <h1 style="margin-top: 30px;">～我的家庭～</h1>
-            <ol>成員1</ol>
-            <ol>成員2</ol>
-            <ol>成員3</ol>
-
+            <h1 style="margin-top: 30px; margin-left: 25px; font-size: 20px;">～我的家庭～</h1>
+            <ol style="margin-left: 50px;">成員1</ol>
+            <ol style="margin-left: 50px;">成員2</ol>
+            <ol style="margin-left: 50px;">成員3</ol>
          </div>
          <hr style="width:80%;margin:25vh 8% 10px 8%;border:solid 1px rgb(221,221,221);">
          <div>
@@ -122,6 +120,19 @@ $(document).ready(picShowInit);
               <div class="results"></div>
             </div>
          </div>
+         <div style="display: flex; flex-direction: row;">
+          <img src="/img/music.png" alt="" style="width: 30px; height: 30px; margin-left: 30px; margin-top: 30px;">
+          <h4 style="margin-left: 10px; margin-top: 35px;">music</h4>
+         </div>
+         <div style="display: flex; flex-direction: row;">
+          <img src="/img/photo.png" alt="" style="width: 30px; height: 30px; margin-left: 30px; margin-top: 10px;">
+          <h4 style="margin-left: 10px; margin-top: 15px;">photo</h4>
+         </div>
+         <div style="display: flex; flex-direction: row;">
+          <img src="/img/video.png" alt="" style="width: 30px; height: 30px; margin-left: 30px; margin-top: 10px;">
+          <h4 style="margin-left: 10px; margin-top: 15px;">video</h4>
+         </div>
+         <h4 style="margin-left: 30px;  margin-top: 15px;"># 自定義標籤&nbsp;&nbsp;&nbsp;+</h4>
       </div>
 
       <div style="width:70%;"  id='B_demo'>
@@ -132,10 +143,6 @@ $(document).ready(picShowInit);
                <li class="poster-item"><a href="#"><img src="img/2.jpg" width="70%" height="70%"></a></li>
                <li class="poster-item"><a href="#"><img src="img/3.jpg" width="70%" height="70%"></a></li>
                <li class="poster-item"><a href="#"><img src="img/4.jpg" width="70%" height="70%"></a></li>
-               <li class="poster-item"><a href="#"><img src="img/5.jpg" width="70%" height="70%"></a></li>
-               <li class="poster-item"><a href="#"><img src="img/5.jpg" width="70%" height="70%"></a></li>
-               <li class="poster-item"><a href="#"><img src="img/5.jpg" width="70%" height="70%"></a></li>
-               <li class="poster-item"><a href="#"><img src="img/5.jpg" width="70%" height="70%"></a></li>
                <li class="poster-item"><a href="#"><img src="img/5.jpg" width="70%" height="70%"></a></li>
             </ul>
             <div class="poster-btn poster-next-btn"></div>
@@ -154,6 +161,12 @@ $(document).ready(picShowInit);
                   <img src="img/1.jpg" width="60%" height="60%" >
                   <h4>大哥婚紗照</h4>
                   <span class="cd-date">9月24日</span>
+                  <img src="img/people.png" alt="" style="height: 20px; width: 20px;">
+                  <img src="img/people.png" alt="" style="height: 20px; width: 20px;">
+                  <img src="img/people.png" alt="" style="height: 20px; width: 20px;">
+                  <img src="img/people.png" alt="" style="height: 20px; width: 20px;">
+                  <img src="img/people.png" alt="" style="height: 20px; width: 20px;">
+                  <img src="img/people.png" alt="" style="height: 20px; width: 20px;">
                 </div> <!-- cd-timeline-content -->
               </div> <!-- cd-timeline-block -->
 
@@ -165,8 +178,13 @@ $(document).ready(picShowInit);
                 <div class="cd-timeline-content">
                   <h2>at 天母運動公園</h2>
                   <img src="img/2.jpg" width="60%" height="60%" >
-
+                  <h4>全家天母野餐日</h4>
                   <span class="cd-date">10月11日</span>
+                  <img src="img/people.png" alt="" style="height: 20px; width: 20px;">
+                  <img src="img/people.png" alt="" style="height: 20px; width: 20px;">
+                  <img src="img/people.png" alt="" style="height: 20px; width: 20px;">
+                  <img src="img/people.png" alt="" style="height: 20px; width: 20px;">
+                  <img src="img/people.png" alt="" style="height: 20px; width: 20px;">
                 </div> <!-- cd-timeline-content -->
               </div> <!-- cd-timeline-block -->
 
@@ -176,72 +194,29 @@ $(document).ready(picShowInit);
                 </div> <!-- cd-timeline-img -->
 
                 <div class="cd-timeline-content">
-                  <h2>Title of section 3</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.</p>
-                  <a href="#0" class="cd-read-more">Read more</a>
-                  <span class="cd-date">Jan 24</span>
-                </div> <!-- cd-timeline-content -->
-              </div> <!-- cd-timeline-block -->
-
-              <div class="cd-timeline-block">
-                <div class="cd-timeline-img cd-location">
-                  <img src="img/cd-icon-location.svg" alt="Location">
-                </div> <!-- cd-timeline-img -->
-
-                <div class="cd-timeline-content">
-                  <h2>Title of section 4</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
-                  <a href="#0" class="cd-read-more">Read more</a>
-                  <span class="cd-date">Feb 14</span>
-                </div> <!-- cd-timeline-content -->
-              </div> <!-- cd-timeline-block -->
-
-              <div class="cd-timeline-block">
-                <div class="cd-timeline-img cd-location">
-                  <img src="img/cd-icon-location.svg" alt="Location">
-                </div> <!-- cd-timeline-img -->
-
-                <div class="cd-timeline-content">
-                  <h2>Title of section 5</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum.</p>
-                  <a href="#0" class="cd-read-more">Read more</a>
-                  <span class="cd-date">Feb 18</span>
-                </div> <!-- cd-timeline-content -->
-              </div> <!-- cd-timeline-block -->
-
-              <div class="cd-timeline-block">
-                <div class="cd-timeline-img cd-movie">
-                  <img src="img/cd-icon-movie.svg" alt="Movie">
-                </div> <!-- cd-timeline-img -->
-
-                <div class="cd-timeline-content">
-                  <h2>Final Section</h2>
-                  <p>This is the content of the last section</p>
-                  <span class="cd-date">Feb 26</span>
+                  <h2>at 圓環</h2>
+                  <img src="img/3.jpg" width="60%" height="60%" >
+                  <h4>圓環一日遊</h4>
+                  <span class="cd-date">11月24日</span>
+                  <img src="img/people.png" alt="" style="height: 20px; width: 20px;">
+                  <img src="img/people.png" alt="" style="height: 20px; width: 20px;">
+                  <img src="img/people.png" alt="" style="height: 20px; width: 20px;">
+                  <img src="img/people.png" alt="" style="height: 20px; width: 20px;">
+                  <img src="img/people.png" alt="" style="height: 20px; width: 20px;">
                 </div> <!-- cd-timeline-content -->
               </div> <!-- cd-timeline-block -->
             </section> <!-- cd-timeline -->        
           </div>
           <div style=" height: 500px;overflow-y:scroll; padding-left: 50px;padding-right: 50px; display: none" id="picture">
             <h3>回上一頁</h3>
-            <img src="img/1.jpg" width="20%" height="20%" style="margin-left: 10px; margin-top: 10px;">
-            <img src="img/2.jpg" width="20%" height="20%" style="margin-left: 10px; margin-top: 10px;">
-            <img src="img/3.jpg" width="20%" height="20%" style="margin-left: 10px; margin-top: 10px;">
-            <img src="img/4.jpg" width="20%" height="20%" style="margin-left: 10px; margin-top: 10px;">
-            <img src="img/5.jpg" width="20%" height="20%" style="margin-left: 10px; margin-top: 10px;">
-            <img src="img/1.jpg" width="20%" height="20%" style="margin-left: 10px; margin-top: 10px;">
-            <img src="img/2.jpg" width="20%" height="20%" style="margin-left: 10px; margin-top: 10px;">
-            <img src="img/3.jpg" width="20%" height="20%" style="margin-left: 10px; margin-top: 10px;">
-            <img src="img/4.jpg" width="20%" height="20%" style="margin-left: 10px; margin-top: 10px;">
           </div>
-
       </div>
-      <div style="background-color: rgb(237, 237, 237); width: 15%; z-index: 1;">
+      <div style="background-color: rgb(237, 237, 237); width: 15%; z-index: 1;padding-left: 10px; padding-left: 10px;">
          <div style="display: flex;">
-            <button class="ui button">
+            <button class="ui button" style="font-size: 10px; margin-left: 10px;margin-top: 10px;">
               家庭行程
             </button>
-            <button class="ui button">
+            <button class="ui button" style="font-size: 10px; margin-top: 10px;">
               檔案
             </button>
          </div>
