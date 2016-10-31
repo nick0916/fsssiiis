@@ -128,6 +128,12 @@
 					me.posterItems.each(function(i){
 						$(this).css("zIndex",zIndexArr[i]);
 					})
+				}else if(dir=="stop"){
+					me.posterItems.each(function(){
+						var self= $(this);
+						self.stop(true,false);
+					});
+					me.rotationFlag=false;
 				}
 			},
 

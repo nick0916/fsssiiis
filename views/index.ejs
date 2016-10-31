@@ -48,7 +48,7 @@
 
     function picShowInit() {
        var bwidth=document.getElementById('middle-column').clientWidth;
-       $(".B_Demo").PicCarousel({
+       $("#middle-column-B-demo").PicCarousel({
           "width":bwidth,     //幻灯片的宽度
           "height":bwidth*0.3,     //幻灯片的高度
           "posterWidth":bwidth*0.52,   //幻灯片第一帧的宽度
@@ -60,9 +60,18 @@
           "verticalAlign":"top"   //图片对齐位置
        });
     }
+    function scalePicShow() {
+      var bdemo=$("#middle-column-B-demo");
+      var carouse=bdemo.data('PicCarousel');
+      carouse.carouseRotate('stop');
+      bdemo.data('PicCarousel',null);
+      picShowInit();
+    }
 
-    $(document).ready(picShowInit);
-
+    $(document).ready(function(){
+      picShowInit();
+      $(window).resize(scalePicShow);
+    });
 
   </script>
 
@@ -99,7 +108,7 @@
       </div>
 
       <div style="width:70%;"  id='middle-column'>
-         <div class="poster-main B_Demo" style="flex-direction: column; display: flex;">
+         <div class="poster-main B_Demo" style="flex-direction: column; display: flex;" id='middle-column-B-demo'>
             <div class="poster-btn poster-prev-btn"></div>
             <ul class="poster-list">
                <li class="poster-item"><a href="#"><img src="img/1.jpg" width="70%" height="70%" ></a></li>
