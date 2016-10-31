@@ -9,13 +9,16 @@ router.get('/', function(req, res, next) {
 
        res.render('index', {});
 
-  
+
 });
 
 router.get('/:date', function(req, res, next) {
    fs.readdir('./public/img/' + req.params.date, function(err, files) {
-       if (err) throw err;
-       
+       if (err) {
+         console.log(err);
+         return ;
+       }
+
       var file = [];
       for(var i in files){
          if (files[i] == ".DS_Store") continue;
@@ -24,7 +27,7 @@ router.get('/:date', function(req, res, next) {
 
        res.render('picture', {'files': files, dir: req.params.date });
    });
-  
+
 });
 
 module.exports = router;
