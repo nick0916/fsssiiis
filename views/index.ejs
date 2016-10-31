@@ -16,25 +16,8 @@
   <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
    <link rel="stylesheet" type="text/css" href="./css/style.css">
 
-
-
-
-
-
   <script type="text/javascript">
     $(document).ready(function() {
-       // $(".A_Demo").PicCarousel("init");
-       $(".A_Demo").PicCarousel({
-          "width":1000,     //幻灯片的宽度
-          "height":300,     //幻灯片的高度
-          "posterWidth":520,   //幻灯片第一帧的宽度
-          "posterHeight":300, //幻灯片第一张的高度
-          "scale":0.9,      //记录显示比例关系
-          "speed":1500,     //记录幻灯片滚动速度
-          "autoPlay":true,  //是否开启自动播放
-          "delay":1000,     //自动播放间隔
-          "verticalAlign":"top"   //图片对齐位置
-       });
 
        $('.cd-timeline-content').on('click', function(){
           var filename = $(this).parent().find('span').text();
@@ -64,7 +47,7 @@
     }
 
     function picShowInit() {
-       var bwidth=document.getElementById('B_demo').clientWidth;
+       var bwidth=document.getElementById('middle-column').clientWidth;
        $(".B_Demo").PicCarousel({
           "width":bwidth,     //幻灯片的宽度
           "height":bwidth*0.3,     //幻灯片的高度
@@ -82,26 +65,6 @@
 
 
   </script>
-<script type="text/javascript">
-function picShowInit() {
-   var bwidth=document.getElementById('B_demo').clientWidth;
-   $(".B_Demo").PicCarousel({
-      "width":bwidth,     //幻灯片的宽度
-      "height":bwidth*0.3,     //幻灯片的高度
-      "posterWidth":bwidth*0.52,   //幻灯片第一帧的宽度
-      "posterHeight":bwidth*0.3, //幻灯片第一张的高度
-      "scale":0.9,      //记录显示比例关系
-      "speed":1500,     //记录幻灯片滚动速度
-      "autoPlay":true,  //是否开启自动播放
-      "delay":1000,     //自动播放间隔
-      "verticalAlign":"top"   //图片对齐位置
-   });
-}
-
-$(document).ready(picShowInit);
-
-</script>
-
 
 </head>
 <body style="margin: 0 0 0 0">
@@ -135,7 +98,7 @@ $(document).ready(picShowInit);
          <h4 style="margin-left: 30px;  margin-top: 15px;"># 自定義標籤&nbsp;&nbsp;&nbsp;+</h4>
       </div>
 
-      <div style="width:70%;"  id='B_demo'>
+      <div style="width:70%;"  id='middle-column'>
          <div class="poster-main B_Demo" style="flex-direction: column; display: flex;">
             <div class="poster-btn poster-prev-btn"></div>
             <ul class="poster-list">
